@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>怀古一何深</title>
+  
+  <subtitle>生活与coding呀</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.huaigu455study.com/"/>
+  <updated>2019-03-04T00:07:18.000Z</updated>
+  <id>http://www.huaigu455study.com/</id>
+  
+  <author>
+    <name>Huaigu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>神经网络 机器学习</title>
+    <link href="http://www.huaigu455study.com/2019/03/04/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    <id>http://www.huaigu455study.com/2019/03/04/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</id>
+    <published>2019-03-04T07:11:02.000Z</published>
+    <updated>2019-03-04T00:07:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要　人工神经网络是一种通用的机器学习模型，是从生物学得到启发去模拟人脑的神经网络，期待能够实现人工智能的机器学习技术．</p></blockquote><ul><li>使用该算法的目的：<br>　　强大的线性<strong>分类器</strong>(监督学习)</li></ul><blockquote><p>不管是线性回归还是逻辑回归，我们都可以通过构造多项式来解决多项式回归问题，但是因为很多实例都需要非常复杂的多项式，当特征过多时，会导致过拟合，和计算量过大，速度缓慢等问题，我们以前学的Logistic算法不能很好的解决特征多的实例分类的问题，所以我们学会当下很火的神经网络算法是必须的！</p></blockquote><p>　　　<br>我认为logistic就可以看作一个最简单的神经网络模型(单层)　如果不对请指出．</p><ul><li>单层神经网络的表示(神经元的表示)<br>　　不知道大家还记得摘要里说的不，神经网络是模拟人类大脑中的神经网络．<br>　　大家想想，我们高中生物里面学过的神经元，<strong>神经网络是由一个个神经元相互连接构成的</strong>．<br>　　如图：<br>　　<img src="/images/tup/10.png" alt="Alt text"><br>　　　轴突，树突．<br>　　　神经元两端，有输入通道和输出通道．<br>　　　这里不详细讲解了，大家自己去看老师视频哈哈．．．．</li></ul><p>　　　输入通道的数据经过神经元，然后从输出通道输出，好比神经末梢感受各种外部环境的变化，最后产生电信号的过程．</p><p>　　　我们在这里使用一个很简单的神经元模型：<br>　　  <img src="/images/tup/1.png" alt="Alt text"></p><p>　　　神经元模拟成一个逻辑单位<br>　　　将x1,x2,x3　输入进圆圈中(这里的圆圈想象成神经元细胞体)　，而圆圈里就是我们要进行的操作．<br>　　　提问　什么样的操作呢？<br>　　　　　　看下文！</p><p>　　　<br>　　　这里我们还可以加一个x0.　　　</p><blockquote><p>x0＝１，被称为偏置单元或偏置神经元，x0是我们看情况而定是否需要使用(看是不是更方便)</p></blockquote><p>　　　当我们这里的hthea(x) = <img src="/images/tup/2.png" alt="Alt text"><br>　　　术语：我们可以说这是一个带有logistic/Sigmoid<strong>激活函数</strong>的人工神经网络</p><p>提问：为什么使用logistic/Sigmoid？<br>原因是：<br>　　神经网络是一个强大的<strong>分类器</strong>　　</p><blockquote><p>如果大家去看过老师的logistic算法的章节的话，从看它的数学公式，可以知道Sigmoid函数的值域范围限制在(0,1)之间,由于其单增以及反函数单增等性质，Sigmoid函数常被用作神经网络的阈值函数，将变量映射到0,1之间，所以激活函数使用Sigmoid函数．<br>　　　　<img src="/images/tup/11.png" alt="Alt text"></p></blockquote><blockquote><p>thea被称为模型参数或者模型的权重！<br>它控制着从某一层到后一层的映射　　后续有图帮助理解</p></blockquote><p>所以我们在神经元中进行的操作是什么呢？<br>　　<img src="/images/tup/12.jpg" alt="Alt text"><br>　　把我们上面的简单神经元模型具体化成运算过程<br>　　简述过程：<br>　　输入x1,x2,x3　所对应的权值(模型参数)分别为thea1,thea2,thea3<br>　　输出为z<br>　　这里的求和是 x1<em>thea1+x2</em>thea2+x3<em>thea3<br>　　这里的非线性函数　是我们刚刚说到的Sigmoid函数　<br>　　所以z = g(x1</em>thea1+x2<em>thea2+x3</em>thea3) g函数就是Sigmoid函数</p><p>   而神经网络是由许多个神经元连接在一起构成的<br>   所以下面介绍双层神经网络　</p><blockquote><p>双层神经网络</p></blockquote><p>　     与单层神经网络不同。两层神经网络可以无限逼近任意连续函数<br>　　这是什么意思呢？也就是说，面对复杂的非线性分类任务，两层神经网络可以分类比单层更好！<br>　　　原因什么的　请自行google！！！<br>　　两层神经网络有　输入层，隐藏层，输出层<br>　　如图：<br>　　<img src="/images/tup/3.png" alt="Alt text"><br>　　第一个是输入层<br>　　第二个人是隐藏层<br>　　第三个是输出层</p><p>　　计算假设函数步骤如下　其实和单层是一样的　只不过多了一个隐藏层　容易理解</p><blockquote><p><img src="/images/tup/5.png" alt="Alt text"><br>第一个代表激活项，例如a2^2代表第二层的第２个激活项<br>激活项是指由一个具体的神经元计算并输出的值<br>第二个代表权重矩阵<br>它控制着从某一层到后一层的映射</p></blockquote><p>　　<br>　　如有不懂去看吴老师视频　p64课时<br>　　<br>　　如图：计算步骤（结合上面的　神经元的操作的图去理解）<br>　　　　　<br>　　<img src="/images/tup/4.png" alt="Alt text"></p><p>　　提示：所以这里的thea1 是一个３X4的矩阵<br>　　个人理解是三个激活项，４个权重值，（包含x0）依次可推．．．也可以用老师给的公式．<img src="/images/tup/6.png" alt="Alttext"></p><p>　　<br>　　而这里的thea2则是一个1Ｘ3的矩阵，（除去x0参数）　　</p><ul><li><p>如何高效的计算（简化计算）<br>向量化实现<br>　　定义额外的项<br>　　<img src="/images/tup/13.png" alt="Alt text"><br>　　看成z1^2 　那么a1^2 = g(z1^2) 如图<br>　　<img src="/images/tup/7.png" alt="Alt text"></p><p>  通过观察发现每一个z是线性代数方程式，因此可以用矩阵乘法表示<br>  输入的变量是[x0,x1，x2，x3]T（代表由x0,x1，x2，x3组成的列向量），用向量x来表示。方程的左边是[z1^2，z2^2,z3^2]T，用向量z^2来表示<br>  如图：<br>  　　　<img src="/images/tup/8.png" alt="Alt text"><br>　　所以可以得到<br>　　<img src="/images/tup/9.png" alt="Alt text"><br>　　依次往下<br>　　 这里我们把输入项x看成第一个a1<br>　　<strong>这个公式就是神经网络中从前一层计算后一层的矩阵运算</strong><br>　　<strong>比如计算第二层则thea=thea1 ,a =a1 </strong></p></li></ul><blockquote><p>公式是　g(thea * a) = h_thea(x)<br>也称为前向传播，从输入到输出<br>　　<br> 在神经网络中，不用输入的特征x1,x2,x3而是用激活项，也就是用逻辑回归训练的项作为输入进行训练！！！！！！！（每一层都是用上一层的来作为输入进行训练．）</p></blockquote><p>每次一层选择好的thea可以得到更好的假设函数，比我们以前的logistic算法得到拟合的更好更复杂的函数！！！！！</p><h1 id="谢谢你看我的博客，如有写的不对的地方还请指出，文章只是用来记录我对于学习吴恩达视频的理解，也许还有很多细节没有提到，如果你通过我的博客有所收获那就是我的荣幸啦！"><a href="#谢谢你看我的博客，如有写的不对的地方还请指出，文章只是用来记录我对于学习吴恩达视频的理解，也许还有很多细节没有提到，如果你通过我的博客有所收获那就是我的荣幸啦！" class="headerlink" title="谢谢你看我的博客，如有写的不对的地方还请指出，文章只是用来记录我对于学习吴恩达视频的理解，也许还有很多细节没有提到，如果你通过我的博客有所收获那就是我的荣幸啦！"></a>谢谢你看我的博客，如有写的不对的地方还请指出，文章只是用来记录我对于学习吴恩达视频的理解，也许还有很多细节没有提到，如果你通过我的博客有所收获那就是我的荣幸啦！</h1><h3 id="后面还会继续更新有关于人工神经网络的博客会进行补充和深入"><a href="#后面还会继续更新有关于人工神经网络的博客会进行补充和深入" class="headerlink" title="后面还会继续更新有关于人工神经网络的博客会进行补充和深入　"></a>后面还会继续更新有关于人工神经网络的博客会进行补充和深入　</h3><h3 id="新手写博大佬误喷"><a href="#新手写博大佬误喷" class="headerlink" title="新手写博大佬误喷"></a>新手写博大佬误喷</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;摘要　人工神经网络是一种通用的机器学习模型，是从生物学得到启发去模拟人脑的神经网络，期待能够实现人工智能的机器学习技术．&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;使用该算法的目的：&lt;br&gt;　　强大的线性&lt;strong&gt;分类器&lt;/str
+      
+    
+    </summary>
+    
+    
+      <category term="吴恩达机器学习" scheme="http://www.huaigu455study.com/categories/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="-机器学习 -学习笔记" scheme="http://www.huaigu455study.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线性回归 机器学习</title>
+    <link href="http://www.huaigu455study.com/2019/02/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
+    <id>http://www.huaigu455study.com/2019/02/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</id>
+    <published>2019-02-25T15:11:02.000Z</published>
+    <updated>2019-03-03T23:11:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要：通过学习吴恩达课程，总结下自己对于线性回归模型的理解</p></blockquote><ul><li>线性回归<br> 　线性回归属于监督学习<br> 　线性回归的输出值是连续的　（此处提出是为了区别于分类的离散）<br> 　通过输入的特征值数目将线性回归分为单变量线性回归和多变量线性回归　也分别叫一元线性回归和多元线性回归<br> 　概念：<br> 　给定一个或多个自变量(特征)x和因变量y，拟合一条直线使得训练集的所有数据点与拟合直线之间的距离之和最小，可以采用平均平方距离来计算．从而对新的自变量所对应的因变量进行预测</li></ul><p>　　　　　　　   　<img src="/images/一元线性.jpg" alt="一元线性回归"></p><p>　　　　　　　　　　　　　　　　　　　　　　　                      一元线性回归</p><blockquote><p>监督学习　简单来说就是我们通过<strong>已知</strong>的训练集样本构造得到的模型对未来数据进行预测　已知是指训练集中的单个样本都有正确答案给出</p></blockquote><ul><li><p>假设函数(预测的模型)<br>　　单变量线性回归的假设函数的公式<br>　　　　　　　　　 <img src="/images/假设函数.png" alt="假设函数"><br>　　<br>　　thea0,thea1 称为模型参数<br>　　随着thea0,thea1的变化，我们会得到不同的假设函数<br>　　所以此时我们的目标是找到能够与数据拟合的好的thea0,thea1…记着我们的目标　后续也是朝着这个目标行动<br>　　<br>　  朝着这个目标的第一步是<br>　  我们如何判断线性回归拟合的直线好不好呢？<br>　  这里我们需要引入代价函数</p></li><li><p>代价函数(cost function)<br>　　使用代价函数去对我们得到的假设函数进行评价！(与所有数据点是否拟合的好)<br>　　代价越小，则拟合的好<br>　　代价越大，则拟合的不好<br>　　所以我们要找到代价最小的点的thea1,thea0值！目标转为找到代价最小的点！！！<br>　　优化目标转为：minmize J(thea1,thea0)<br>　　<br>　　如何计算代价这里使用了平均平方距离之和　这里不理解的推荐去看吴老师的视频 　链接放在底部　　就很容易理解了<br>　　所以我们可以得到以下公式<br>　　　　　　　　　<img src="/images/公式.png" alt="公式"></p></li></ul><p>　　公式中符号的含义:<br>　               m = 训练集数量<br><img src="/images/公式1.png" alt="公式"><br>                 表示向量x中的第i个元素<br><img src="/images/公式2.png" alt="公式"><br>                 表示向量y中的第i个元素</p><p>　　不理解公式的请去反复看老师的视频这里就不推导过程了．．需要用图．　如果有不理解的地方．．评论插件弄好　大家可以讨论</p><p>　　为了更好的理解代价函数，我们简化参数将thea0 =0 可以得到thea1与代价函数为：<br>这里的推导移步老师的视频　很容易理解<br>　　　　　　　　　<img src="/images/公式3.png" alt="凸图形"><br>   　<br>  　<br>    看到这张图！我们就应该开心啦　因为我们可以看到有一个代价最小的点　当thea1=1时代价为０　是一个凸函数！！</p><p>　  ok 这时候回到刚刚的公式　两个模型参数thea1,thea0</p><p>  　此时代价函数和他们的关系：<br>　　　　　　　　　　　<img src="/images/图4.png" alt="碗状曲面"></p><p>  　碗状３维图形　代价值等于点到平面的距离<br>  　ok!　可以看出也有最低点　此时就完成了目标<br>  　用等高线来理解理解　高中地理应该学过吧．．．<br> 　　　　　　　　<img src="/images/等高线.png" alt="等高线图"><br>　  不懂的话　多看几次视频！</p><p><a href="https://study.163.com/course/courseLearn.htm?courseId=1004570029&amp;from=study#/learn/video?lessonId=1049099161&amp;courseId=1004570029" target="_blank" rel="noopener">吴老师视频</a></p><p> 　还记得目标吗？<br> 　是自动找到这个代价值最低的点<br> 　下个博客　引入我对于梯度下降算法的理解　</p><h3 id="谢谢观看我的博客如果我哪里有理解的不正确希望能通过评论告诉我"><a href="#谢谢观看我的博客如果我哪里有理解的不正确希望能通过评论告诉我" class="headerlink" title="谢谢观看我的博客如果我哪里有理解的不正确希望能通过评论告诉我"></a>谢谢观看我的博客如果我哪里有理解的不正确希望能通过评论告诉我</h3><h3 id="评论功能完善ing…"><a href="#评论功能完善ing…" class="headerlink" title="评论功能完善ing…"></a>评论功能完善ing…</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;摘要：通过学习吴恩达课程，总结下自己对于线性回归模型的理解&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;线性回归&lt;br&gt; 　线性回归属于监督学习&lt;br&gt; 　线性回归的输出值是连续的　（此处提出是为了区别于分类的离散）&lt;br&gt; 　通过输入的
+      
+    
+    </summary>
+    
+    
+      <category term="吴恩达机器学习" scheme="http://www.huaigu455study.com/categories/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="-机器学习 -学习笔记" scheme="http://www.huaigu455study.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>梯度下降算法 机器学习</title>
+    <link href="http://www.huaigu455study.com/2019/02/25/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95/"/>
+    <id>http://www.huaigu455study.com/2019/02/25/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95/</id>
+    <published>2019-02-25T15:11:02.000Z</published>
+    <updated>2019-03-03T23:11:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要　这篇博客我们介绍<strong>梯度下降算法</strong>(Gradient descent)<br>前言　为什么需要使用梯度下降算法　移步<a href="http://huaigu455study.com/2019/02/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%8D%EF%BC%8D%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/#more" target="_blank" rel="noopener">线性回归</a></p></blockquote><ul><li>重要性<br>　　 在机器学习扮演了非常重要的角色，在构造模型时，很多算法我们往往都会为了去解决一个最优化的问题，梯度下降则能用简单的原理去解决这个问题，所以学会梯度下降算法是非常重要的！<br>　　<br>维基百科<blockquote><p>梯度下降法是一个一阶<strong>最优化</strong>算法，通常也称为最速下降法。 要使用梯度下降法找到一个函数的局部极小值，必须向函数上当前点对应梯度的反方向的规定步长距离点进行迭代搜索。</p></blockquote></li></ul><p>看本文章之前介绍先去看老师的视频<br>如果有不太懂得地方欢迎到这篇博客里面找一下，如果能让你理解，那便是我的荣幸啦　哈哈～～<br>　话不多说开始吧！　　　</p><ul><li><p>理解梯度下降的思想(最优化)<br>　这里的话我们需要想象我们在一个山上，我们如何快速下山的问题！<br>　<img src="/images/8.jpg" alt="山"><br>　<br>移步视频理解这一段老师的讲解<br>　<a href="https://study.163.com/course/courseLearn.htm?courseId=1004570029#/learn/video?lessonId=1049105129&amp;courseId=1004570029" target="_blank" rel="noopener">吴恩达老师</a>　p10..<br>　理解了我们就就可以观察图片得到算法的思路！！！</p></li><li><p>算法思路<br>　我们要做的就是开始给定thea0,thea1初始值<br>　我们不停地一点点地改变thea0,thea1的值来使代价函数变小<br>　直到我们找到Ｊ(thea)的最小值，或者局部最小值！<br>　　<br>　一步一步慢慢下降到最低点　每一步都判断最优下降！<br>　<br>　这里我们先写出它的数学原理　我们在用可视化的图形去理解<br>　可视化的图形我们会简化　h(thea) = thea0+thea1*x 将thea0=0<br>　后续在两个参数一起理解(<strong>请记住</strong>同步更新模型参数!!)<br>数学公式<br>　<img src="/images/公式.png" alt="公式"></p></li></ul><p>　这里我们可以看到有个α<br>　α这个参数我们需要好好理解一下　　</p><blockquote><p>α在梯度下降算法中被称为学习率或者步长，使用α来控制步子的大小<br>α越大，梯度下降迅速<br>α越小，梯度下降缓慢</p></blockquote><p>后果：α太小会导致下降速度慢！<br>　　　α太大！则导致无法收敛到最低点或者发散！</p><p>如图：<br>　　<br>　　<img src="/images/3.png" alt="图１"></p><p>  为了更好的理解梯度下降算法　我们简化假设函数并且可视化<br>  可视化为：<br>  <img src="/images/5.png" alt="图"><br>  那条虚线其实就是导数<br>  <img src="/images/4.png" alt="图"><br>  所以结合数学公式<br>  我们可以看出<br>  thea1 = thea1 - α<em>导数</em>Ｊ(thea1)<br>  所以thea1是在慢慢的变小</p><p>  同理　如果导数在左侧则为负数　则thea1是在慢慢的变大的</p><p>  结合上面：<br>  理解多个模型参数是不是简单多了呢，请记住模型参数是<strong>同步更新</strong></p><ul><li>局部最优解<br>　有些函数可能有多个局部极小值点，下面是一个例子<br>　<strong>因为梯度下降算法适用于任意函数</strong>　<br>　<img src="/images/7.jpg" alt="Alt text"></li></ul><p>　在 A,B,C都有局部最小点，但是Ａ才是最优，不过梯度下降函数会在C,B就停止，这里停止是依据数学公式，在最低点的话导数为０，所以模型参数不会更新了．</p><h3 id="后续还会将梯度算法运用在线性回归，Logistic算法上，记录一些学习到的新算法，持续关注！比心！"><a href="#后续还会将梯度算法运用在线性回归，Logistic算法上，记录一些学习到的新算法，持续关注！比心！" class="headerlink" title="后续还会将梯度算法运用在线性回归，Logistic算法上，记录一些学习到的新算法，持续关注！比心！"></a>后续还会将梯度算法运用在线性回归，Logistic算法上，记录一些学习到的新算法，持续关注！比心！</h3><h3 id="谢谢你看我的博客，如果我有哪里理解的不对-还请指出感谢啦"><a href="#谢谢你看我的博客，如果我有哪里理解的不对-还请指出感谢啦" class="headerlink" title="谢谢你看我的博客，如果我有哪里理解的不对　还请指出感谢啦"></a>谢谢你看我的博客，如果我有哪里理解的不对　还请指出感谢啦</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;摘要　这篇博客我们介绍&lt;strong&gt;梯度下降算法&lt;/strong&gt;(Gradient descent)&lt;br&gt;前言　为什么需要使用梯度下降算法　移步&lt;a href=&quot;http://huaigu455study.com/2019/02/25/%E6
+      
+    
+    </summary>
+    
+    
+      <category term="吴恩达机器学习" scheme="http://www.huaigu455study.com/categories/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="-机器学习 -学习笔记" scheme="http://www.huaigu455study.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>制作属于自己的词云</title>
+    <link href="http://www.huaigu455study.com/2019/02/25/python%E5%88%B6%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AF%8D%E4%BA%91/"/>
+    <id>http://www.huaigu455study.com/2019/02/25/python%E5%88%B6%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AF%8D%E4%BA%91/</id>
+    <published>2019-02-25T07:57:30.000Z</published>
+    <updated>2019-02-26T00:46:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>词云，又称文字云，是文本数据的视觉表示，由词汇组成类似云的图形(可以自定义图片)，用于展示大量文本数据。对网络文本中出现频率较高的“关键词”给以视觉上的突出(通过颜色或大小等)，帮助我们过滤掉大量的文本信息，使浏览者可以快速了解文本的主旨．</p></blockquote><ul><li>提问１<br>为什么想要使用词云<br>   1: 能够让我一眼了解文本主旨　快！<br>   2: 能够帮助我以后写论文和在ppt中加入　实用性高与别人对比起来会有加分项，更胜一筹．</li></ul><p>　　</p><ul><li>提问２<br> 为什么能想到去实现词云<br> 首先这里感谢下我曾经经常学习的地方[实验楼]     (<a href="https://www.shiyanlou.com/)，是这里让我了解到词云" target="_blank" rel="noopener">https://www.shiyanlou.com/)，是这里让我了解到词云</a></li></ul><p>感谢这两个因素！</p><p>好了我们一起进入正题吧！</p><ul><li><p>使用的词云的生成库类 wordcloud<br>　<a href="https://github.com/amueller/word_cloud" target="_blank" rel="noopener">github地址</a><br>　<a href="https://amueller.github.io/word_cloud/" target="_blank" rel="noopener">官方地址</a></p></li><li><p>安装<br>　通过读官方库的说明　在github下<br>　我们需要安装如下<br>　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　  sudo pip3 install numpy </span><br><span class="line">　  sudo pip3 install Pillow</span><br><span class="line">　  sudo pip3 install matplotlib  </span><br><span class="line">　  sudo pip3 install wordcloud</span><br><span class="line">　  sudo pip3 install jieba</span><br></pre></td></tr></table></figure></p></li></ul><p>　安装成功后我们就可以开始弄词云啦　</p><ul><li><p>数据的准备<br>  １．我们需要准备分析对象，文本<br>  　　这里我们使用的文本是：<br><img src="/images/wenben.png" alt="图片"><br>  　　<br>   ２．我们需要准备一张图片<br><img src="/images/pk.jpg" alt="图片1">  　　</p></li><li><p>文本预处理</p></li></ul><blockquote><p>在这里我们要对文本进行分词，因为在中文中，只有字，句和段落能够通过明显的分界符进行简单的划界，而对于＂词＂和＂词组＂来说，它们边界模糊，没有一个形式上的分解符．　</p></blockquote><p>由于这里我只看了一点人类简史就不导入自定义的词典了</p><blockquote><p>用户自定义词典可以保证分词时，用户自定义的某些词能够被保留下来，例如“东野圭吾”这个作者，没被加入到自定义词典时，会被分成“东野”“圭吾”两个词，这肯定会影响后续研究，将其添加到词典中就不会被拆开了</p></blockquote><p>这里我们使用jieba进行简单的分词!!….如果需要进行更精准的分词　进自行google jieba的用法</p><p>十几行代码实现：<br>　<img src="/images/wenbenya.png" alt="图片2"></p><p>皮卡丘词云：<br>　<img src="/images/1.png" alt="图片3"></p><blockquote><p>这里提一句我第一次接触jieba 这里就简单分词一下，通过google发现还有许多分词方法(以后一定会在更新这篇文章)，同时我觉得还可以分成章节去分析章节分析每章内容　快速掌握章节知识点</p></blockquote><p>好了结果就是这样啦！<br>可以自定义图片形状，颜色．字体等等．．．　自行google学习，做一个属于自己的词云吧．．</p><h3 id="感觉自己的词云还可以更加准确和个性化-这篇文章持续更新ing…"><a href="#感觉自己的词云还可以更加准确和个性化-这篇文章持续更新ing…" class="headerlink" title="感觉自己的词云还可以更加准确和个性化　　这篇文章持续更新ing….."></a>感觉自己的词云还可以更加准确和个性化　　这篇文章持续更新ing…..</h3><h3 id="谢谢你看我的博客，如果我有哪里没写好或者你对于制作词云有更好的意见-比如使用一些算法去分析文本等等-都可以在评论区告诉我．"><a href="#谢谢你看我的博客，如果我有哪里没写好或者你对于制作词云有更好的意见-比如使用一些算法去分析文本等等-都可以在评论区告诉我．" class="headerlink" title="谢谢你看我的博客，如果我有哪里没写好或者你对于制作词云有更好的意见　/比如使用一些算法去分析文本等等　都可以在评论区告诉我．"></a>谢谢你看我的博客，如果我有哪里没写好或者你对于制作词云有更好的意见　/比如使用一些算法去分析文本等等　都可以在评论区告诉我．</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;词云，又称文字云，是文本数据的视觉表示，由词汇组成类似云的图形(可以自定义图片)，用于展示大量文本数据。对网络文本中出现频率较高的“关键词”给以视觉上的突出(通过颜色或大小等)，帮助我们过滤掉大量的文本信息，使浏览者可以快速了解文本的主旨．&lt;/p&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="python有趣的小项目　" scheme="http://www.huaigu455study.com/categories/python%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B0%8F%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="-随心更小项目 -python" scheme="http://www.huaigu455study.com/tags/%E9%9A%8F%E5%BF%83%E6%9B%B4%E5%B0%8F%E9%A1%B9%E7%9B%AE-python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>欢迎来到我的博客</title>
+    <link href="http://www.huaigu455study.com/2019/02/25/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://www.huaigu455study.com/2019/02/25/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/</id>
+    <published>2019-02-25T07:57:30.000Z</published>
+    <updated>2019-02-25T01:28:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h1><h2 id="这里分享我的日常和coding"><a href="#这里分享我的日常和coding" class="headerlink" title="这里分享我的日常和coding"></a>这里分享我的日常和coding</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;欢迎来到我的博客&quot;&gt;&lt;a href=&quot;#欢迎来到我的博客&quot; class=&quot;headerlink&quot; title=&quot;欢迎来到我的博客&quot;&gt;&lt;/a&gt;欢迎来到我的博客&lt;/h1&gt;&lt;h2 id=&quot;这里分享我的日常和coding&quot;&gt;&lt;a href=&quot;#这里分享我的日常和codin
+      
+    
+    </summary>
+    
+    
+      <category term="日常话唠　" scheme="http://www.huaigu455study.com/categories/%E6%97%A5%E5%B8%B8%E8%AF%9D%E5%94%A0/"/>
+    
+    
+      <category term="-介绍" scheme="http://www.huaigu455study.com/tags/%E4%BB%8B%E7%BB%8D/"/>
+    
+  </entry>
+  
+</feed>
